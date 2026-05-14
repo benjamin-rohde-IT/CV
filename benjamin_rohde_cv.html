@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benjamin Rohde — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a1a;
+    --muted: #666;
+    --faint: #999;
+    --accent: #608697;
+    --accent-dark: #193229;
+    --accent-light: #e8efe9;
+    --rule: #d4d4d4;
+    --bg: #f6f5f1;
+    --paper: #ffffff;
+  }
+
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    /*background: radial-gradient(circle at top left, rgba(44,74,62,0.08), transparent 38%),
+                linear-gradient(180deg, #fdfcf9 0%, #f6f5f1 100%);*/
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  .page {
+    width: 794px;
+    height: 1123px;
+    margin: 0px auto;
+    background: var(--paper);
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 24px 60px rgba(32,40,45,0.12);
+    overflow: hidden;
+    background: radial-gradient(circle at top left, rgba(44,74,62,0.08), transparent 38%),
+                linear-gradient(180deg, #fdfcf9 0%, #f6f5f1 100%);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 15px 56px;
+    /*background: linear-gradient(135deg, rgba(44,74,62,0.08), transparent 65%);*/
+    border-bottom: 1px solid rgba(44,74,62,0.12);
+  }
+
+
+  .header-text {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    letter-spacing: -0.55px;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent-dark);
+    letter-spacing: 1.9px;
+    margin-bottom: 24px;
+  }
+
+  .contact-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+
+  .contact-item {
+    font-size: 12.5px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: rgba(44,74,62,0.06);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .contact-item:hover {
+    color: var(--accent-dark);
+    background: rgba(44,74,62,0.12);
+  }
+
+  .contact-item svg {
+    flex-shrink: 0;
+    opacity: 0.7;
+  }
+
+  .photo-wrap {
+    width: 140px;
+    height: 210px;
+    flex-shrink: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  }
+
+  .photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* ── BODY ── */
+  .body {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    height: 100%;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    padding: 10px 32px 44px 56px;
+    border-right: 1px solid rgba(44,74,62,0.12);
+    /*background: rgba(44,74,62,0.03);*/
+  }
+
+  .sidebar-section { margin-bottom: 36px; }
+  .sidebar-section:last-child { margin-bottom: 0; }
+
+  .sidebar-label {
+    font-size: 9.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--faint);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .skill-group { margin-bottom: 14px; }
+
+  .skill-group-name {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .skill-list {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .lang-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+
+  .lang-name { font-size: 12.5px; color: var(--ink); }
+  .lang-level {
+    font-size: 10.5px;
+    color: var(--faint);
+    font-style: italic;
+  }
+
+  .edu-item { margin-bottom: 16px; }
+
+  .edu-degree {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 3px;
+  }
+
+  .edu-school {
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+
+  .edu-year {
+    font-size: 10.5px;
+    color: var(--faint);
+  }
+
+  /* ── MAIN ── */
+  .main {
+    padding: 12px 56px 44px 44px;
+    background: #ffffff;
+  }
+
+  .main-section { margin-bottom: 10px; }
+  .main-section:last-child { margin-bottom: 0; }
+
+  .section-label {
+    position: relative;
+    font-size: 9.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--faint);
+    font-weight: 600;
+    padding-bottom: 7px;
+  }
+
+  .profile-text {
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: #444;
+    font-weight: 300;
+  }
+
+  .job:last-child { margin-bottom: 0; }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .job-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--ink);
+  }
+
+  .job-period {
+    font-size: 11px;
+    color: var(--faint);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .job-company {
+    font-size: 12px;
+    color: var(--accent-dark);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    margin-bottom: 12px;
+  }
+
+  .job-bullets { list-style: none; padding: 0; }
+
+  .job-bullets li {
+    font-size: 12.6px;
+    color: #444;
+    line-height: 1.75;
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 5px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-text">
+      <h1 class="name">Benjamin Rohde</h1>
+      <p class="title">MSc · Business Administration &amp; Information Systems</p>
+      <div class="contact-grid">
+        <a href="tel:+4521972410" class="contact-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.11 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+          +45 21 97 24 10
+        </a>
+        <a href="mailto:Benjamin@rohde-it.dk" class="contact-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          Benjamin@rohde-it.dk
+        </a>
+        <a href="https://linkedin.com/in/benjamin-rohde-IT" class="contact-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          linkedin.com/in/benjamin-rohde-IT
+        </a>
+        <a href="https://github.com/benjamin-rohde-IT" class="contact-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          github.com/benjamin-rohde-IT
+        </a>
+        <span class="contact-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Bagsværd, Copenhagen
+        </span>
+      </div>
+    </div>
+    <div class="photo-wrap">
+      <img src="/IMG_2243.jpg" alt="Photo of Benjamin Rohde">
+    </div>
+  </header>
+
+  <div class="body">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">Education</p>
+        <div class="edu-item">
+          <p class="edu-degree">MSc Business Admin &amp; Information Systems</p>
+          <p class="edu-school">Copenhagen Business School</p>
+          <p class="edu-year">2025 — Present</p>
+        </div>
+        <div class="edu-item">
+          <p class="edu-degree">BSc Business Admin &amp; Information Systems</p>
+          <p class="edu-school">Copenhagen Business School</p>
+          <p class="edu-year">2022 — 2025</p>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">Technical Skills</p>
+        <div class="skill-group">
+          <p class="skill-group-name">Languages</p>
+          <p class="skill-list">Python · JavaScript · SQL · PHP</p>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-name">Frameworks</p>
+          <p class="skill-list">React · Vue.js</p>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-name">Infrastructure</p>
+          <p class="skill-list">Docker · MS Power Platform · Office 365</p>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-name">Competencies</p>
+          <p class="skill-list">System Architecture · IT Strategy · Systems Design · Project Management</p>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">Languages</p>
+        <div class="lang-item">
+          <span class="lang-name">Danish</span>
+          <span class="lang-level">Native</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">English</span>
+          <span class="lang-level">Fluent</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <section class="main-section">
+        <p class="section-label">Profile</p>
+        <p class="profile-text">Results-driven MSc student in Business Administration and Information Systems at Copenhagen Business School, with a strong foundation in AI-adjacent technologies, system design, and full-stack development. Experienced in delivering IT solutions across corporate and non-profit environments, with a proven ability to bridge technical complexity and business strategy.</p>
+      </section>
+
+      <section class="main-section">
+        <p class="section-label">Experience</p>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Intern</span>
+            <span class="job-period">Sep 2025 — Present</span>
+          </div>
+          <p class="job-company">Novo Nordisk</p>
+          <ul class="job-bullets">
+            <li>Consolidated data and engineered new workflows to modernise asset management, improving transparency and operational readiness.</li>
+            <li>Partnered with project and finance teams to shape forecasting, reporting, and change-ready delivery.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">IT Junior Consultant</span>
+            <span class="job-period">May 2024 — Sep 2025</span>
+          </div>
+          <p class="job-company">Red Barnet Ungdom</p>
+          <ul class="job-bullets">
+            <li>Led the development and maintenance of mission-critical systems to ensure seamless organisational operations.</li>
+            <li>Directed strategic IT migration projects, transitioning legacy platforms to modern, scalable solutions.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Programming Instructor</span>
+            <span class="job-period">Aug 2024 — Aug 2025</span>
+          </div>
+          <p class="job-company">Copenhagen Business School</p>
+          <ul class="job-bullets">
+            <li>Delivered instruction in programming concepts and the development of small-scale systems and databases.</li>
+            <li>Provided tailored guidance on complex technical subjects, improving student comprehension and engagement.</li>
+            <li>Collaborated with faculty to refine course materials and incorporate industry-relevant examples.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Freelance Developer</span>
+            <span class="job-period">2024 — 2025</span>
+          </div>
+          <p class="job-company">Independent</p>
+          <ul class="job-bullets">
+            <li>Delivered affordable digital solutions for NGOs, balancing user needs, budget constraints, and long-term maintainability.</li>
+          </ul>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+</div>
+</body>
+</html>
