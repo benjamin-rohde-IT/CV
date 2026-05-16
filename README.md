@@ -1,2 +1,2 @@
-title: Octocat's homepage
-description: Bookmark this to keep an eye on my project updates!
+title: The CV of Benjamin Peter Maagaard Rohde
+description: In order to showcase my experience and interests i have made this digital CV, which for convenience is also made in a format that fits on A4 paper. 
